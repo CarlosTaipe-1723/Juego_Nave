@@ -63,6 +63,7 @@ public:
 	NAVE(int _x, int _y, int _corazones, int _vidas):x(_x),y(_y),corazones(_corazones),vidas(_vidas){}//El constructor lleva el mismo nombre que la clase
 	int X(){return x;}
 	int Y(){return y;}
+	int VID() {return vidas;}//Esto es una funcion
 	void COR (){corazones--;}
 	void Dibujar_Nave();
 	void Borrar_Nave();
@@ -257,7 +258,8 @@ int main (){
 					}
 			}
 		}
-				
+		
+		if(N.VID()==0) game_over=true;
 		N.Morir();
 		N.Mover_Nave();
 		Sleep(30);
