@@ -32,6 +32,7 @@ void OcultarCursor(){
 }
 
 void Dibujar_Limites(){
+	//Limite Superior e inferior
 	for(int i=2;i<118;i++){
 		gotoxy(i,3);
 		printf("%c",205);
@@ -39,6 +40,7 @@ void Dibujar_Limites(){
 		printf("%c",205);
 	}
 	
+	//Limite de los costados
 	for(int i = 4;i<30;i++){
 		gotoxy(1,i);
 		printf("%c",186);
@@ -46,6 +48,7 @@ void Dibujar_Limites(){
 		printf("%c",186);
 	}
 	
+	//Aqui se dibujan las esquinas de los limites
 	gotoxy(1,3); printf("%c",201);
 	gotoxy(1,30); printf("%c",200);
 	gotoxy(118,3); printf("%c",187);
@@ -87,7 +90,7 @@ void NAVE::Mover_Nave(){
 			Borrar_Nave();
 			if(tecla == IZQUIERDA && x>3) 
 				x--;
-			if(tecla == DERECHA && x+6<118) 
+			if(tecla == DERECHA && x+3<114) 
 				x++;
 			if(tecla == ARRIBA && y>4) 
 				y--;
@@ -107,21 +110,21 @@ void NAVE::Dibujar_Corazones(){
 	gotoxy(111,2); printf("      ");
 	for(int i= 0;i<corazones;i++){
 		gotoxy(111+i,2);
-		printf("%c ",157);
+		printf("%c ",207);
 	}
 }
 void NAVE::Morir(){
 	if(corazones==0){
 		Borrar_Nave();
-		gotoxy(x,y);  printf("   **   ");
-		gotoxy(x,y+1);printf("  ****  ");
-		gotoxy(x,y+2);printf("   **   ");
+		gotoxy(x,y);  printf("  %c",176);
+		gotoxy(x,y+1);printf(" %c%c%c",176);
+		gotoxy(x,y+2);printf("%c%c %c%c",176);
 		Sleep(300);
 		
 		Borrar_Nave();
-		gotoxy(x,y);  printf(" * ** * ");
-		gotoxy(x,y+1);printf("  ****  ");
-		gotoxy(x,y+2);printf(" * ** * ");
+		gotoxy(x,y);  printf(" %c %c",178);
+		gotoxy(x,y+1);printf("%c %c %c",178);
+		gotoxy(x,y+2);printf(" %c %c",178);
 		Sleep(300);
 		Borrar_Nave();
 		
@@ -144,11 +147,11 @@ public:
 };
 
 void AST::Dibujar_Ast(){
-	gotoxy(x,y); printf(" %c ",184);
+	gotoxy(x,y); printf("%c",184);
 }
 
 void AST::Mover_Ast(){
-	gotoxy(x,y); printf("  ");
+	gotoxy(x,y); printf(" ");
 	y++;
 	if(y>29){
 		x = rand()%113+4;
@@ -158,7 +161,7 @@ void AST::Mover_Ast(){
 }
 
 void AST::choque(NAVE &N){
-	if(x>=N.X()&&x<N.X()+8 && y>=N.Y() && y<=N.Y()+2){
+	if(x>=N.X()&&x<N.X()+5 && y>=N.Y() && y<=N.Y()+2){
 		N.COR();
 		N.Borrar_Nave();
 		N.Dibujar_Nave();
@@ -193,7 +196,7 @@ int main (){
 	
 	OcultarCursor(); 
 	Dibujar_Limites();
-	NAVE N(37,26,3,3);//Define donde va a aparecer la nave,corazones,vidas
+	NAVE N(37,27,3,3);//Define donde va a aparecer la nave,corazones,vidas
 	
 	N.Dibujar_Nave();
 	N.Dibujar_Corazones();
