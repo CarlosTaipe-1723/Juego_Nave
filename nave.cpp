@@ -264,5 +264,22 @@ int main (){
 		N.Mover_Nave();
 		Sleep(30);
 	}
+	
+	system("cls"); // Limpiar pantalla (clear screen)
+    printf("\n\n\n\n\n\n\n");
+    Sleep(400);
+    printf("\t\t\t\tGA");
+    Sleep(600);
+    printf("ME\n");
+    Sleep(700);
+    printf("\t\t\t\tOVER\n");
+    Sleep(2000);
+    printf("\n\n\n\n\n\n\n");
+
+
+   printf("\n\n\n\n\n\n\n");
+   printf("Thank for playing %c",2);
+   printf("\n\n\n\n");
+	
 	return 0;
 }
