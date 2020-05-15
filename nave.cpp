@@ -211,7 +211,10 @@ int main (){
 	list<BALA*>::iterator it;
 	
 	bool game_over = false;
+	int puntos = 0;
 	while(!game_over){
+		
+		gotoxy(4,2); printf("Puntos: %d",puntos);
 		
 		if(kbhit()){
 			char tecla = getch();
@@ -249,6 +252,8 @@ int main (){
 						gotoxy((*itA)->X(),(*itA)->Y()); printf("   ");				
 						delete(*itA);//Borra el objeto de la lista
 						itA = A.erase(itA);
+						
+						puntos+=5;
 					}
 			}
 		}
