@@ -117,15 +117,15 @@ void NAVE::Dibujar_Corazones(){
 void NAVE::Morir(){
 	if(corazones==0){
 		Borrar_Nave();
-		gotoxy(x,y);  printf("  %c",176);
-		gotoxy(x,y+1);printf(" %c%c%c",176);
-		gotoxy(x,y+2);printf("%c%c %c%c",176);
+		gotoxy(x,y);  printf("  ** ");
+		gotoxy(x,y+1);printf("* ** *");
+		gotoxy(x,y+2);printf("  **  ");
 		Sleep(300);
 		
 		Borrar_Nave();
-		gotoxy(x,y);  printf(" %c %c",178);
-		gotoxy(x,y+1);printf("%c %c %c",178);
-		gotoxy(x,y+2);printf(" %c %c",178);
+		gotoxy(x,y);  printf("* ** *");
+		gotoxy(x,y+1);printf(" **** ");
+		gotoxy(x,y+2);printf("* ** *");
 		Sleep(300);
 		Borrar_Nave();
 		
